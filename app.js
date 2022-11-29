@@ -1,12 +1,15 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
+const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const catalogRouter = require('./routes/catalog'); //Import routes for "catalog" area of site
+
+dotenv.config();
 
 const mongoDB = process.env.MONGODB_URL;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
